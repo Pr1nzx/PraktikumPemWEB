@@ -12,7 +12,8 @@
                     <th>ID</th>
                     <th>Name</th>
                     <th>Description</th>
-                    <th>Gender</th> 
+                    <th>Gender</th>
+                    <th>File</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -22,7 +23,12 @@
                     <td>{{ $item->id }}</td>
                     <td>{{ $item->name }}</td>
                     <td>{{ $item->description }}</td>
-                    <td>{{ $item->gender }}</td> 
+                    <td>{{ $item->gender }}</td>
+                    <td>
+                        @if ($item->file_path)
+                            <a href="{{ asset('storage/' . $item->file_path) }}" target="_blank">Download File</a>
+                        @endif
+                    </td>
                     <td>
                         <a href="{{ route('items.edit', $item->id) }}" class="btn btn-sm btn-primary">Edit</a>
                         <form action="{{ route('items.destroy', $item->id) }}" method="POST" style="display: inline-block;">

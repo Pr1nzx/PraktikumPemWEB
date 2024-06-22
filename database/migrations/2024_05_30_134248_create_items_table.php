@@ -14,7 +14,7 @@ class CreateItemsTable extends Migration
             $table->string('name');
             $table->text('description')->nullable();
             $table->string('gender')->nullable();
-
+            $table->string('file_path')->nullable(); // tambahan untuk store
         });
     }
 

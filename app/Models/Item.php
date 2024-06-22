@@ -13,6 +13,6 @@ class Item extends Model
         'name',
         'description',
         'gender',
-
+        'file_path', // tambahan file pathj
     ];
 }

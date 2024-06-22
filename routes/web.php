@@ -15,7 +15,8 @@ Route::middleware(['auth'])->group(function () {
         return redirect()->route('items.index');
     });
 
-    Route::resource('items', ItemController::class);
-    Route::get('/items/create', [ItemController::class, 'create'])->name('items.create');
-    Route::get('/items/{item}/edit', [ItemController::class, 'edit'])->name('items.edit');
+    Route::resource('items', ItemController::class)->except(['show']); // Tambahkan except('show') jika tidak memerlukan halaman detail
+    
+    // Tambahan route untuk menangani file download jika diperlukan
+    Route::get('items/{item}/download', [ItemController::class, 'download'])->name('items.download');
 });
